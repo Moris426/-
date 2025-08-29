@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Биржа - Investment Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .background-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            opacity: 0.08;
+            border-radius: 20px;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            right: 2%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 8s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        .text-section {
+            z-index: 2;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .logo-icon {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
+        }
+
+        .logo-icon::before {
+            content: '📈';
+            font-size: 35px;
+        }
+
+        .logo-text {
+            font-size: 54px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        .description {
+            font-size: 28px;
+            line-height: 1.6;
+            color: #b0b0b0;
+            margin-bottom: 50px;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #cccccc;
+            margin-bottom: 40px;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .features-list {
+            list-style: none;
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 35px;
+            padding: 25px;
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(76, 175, 80, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #4CAF50, #45a049);
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            background: rgba(76, 175, 80, 0.1);
+            border-color: rgba(76, 175, 80, 0.3);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-right: 20px;
+            margin-top: 5px;
+            min-width: 40px;
+        }
+
+        .feature-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #ffffff;
+        }
+
+        .phone-mockup {
+            position: relative;
+            animation: slideInRight 1s ease-out 0.8s both;
+        }
+
+        .phone {
+            width: 340px;
+            height: 680px;
+            background: #000;
+            border-radius: 50px;
+            padding: 30px;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.7);
+            border: 5px solid #333;
+        }
+
+        .phone::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 35px;
+            background: #000;
+            border-radius: 25px;
+            z-index: 3;
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-radius: 40px;
+            padding: 60px 25px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .app-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .app-store-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .store-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .app-store {
+            background: #007AFF;
+        }
+
+        .google-play {
+            background: linear-gradient(45deg, #34A853, #4285F4);
+        }
+
+        .investment-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #ccc;
+            line-height: 1.4;
+        }
+
+        .portfolio-list {
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .portfolio-list::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .portfolio-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .portfolio-list::-webkit-scrollbar-thumb {
+            background: rgba(76, 175, 80, 0.5);
+            border-radius: 10px;
+        }
+
+        .portfolio-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: portfolioFloat 5s ease-in-out infinite;
+        }
+
+        .portfolio-item:nth-child(even) {
+            animation-delay: 2.5s;
+        }
+
+        @keyframes portfolioFloat {
+            0%, 100% { transform: translateX(0px); }
+            50% { transform: translateX(2px); }
+        }
+
+        .portfolio-item:last-child {
+            border-bottom: none;
+        }
+
+        .portfolio-left {
+            flex: 1;
+        }
+
+        .portfolio-name {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .portfolio-desc {
+            color: #888;
+            font-size: 10px;
+        }
+
+        .portfolio-right {
+            text-align: right;
+        }
+
+        .portfolio-price {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .portfolio-change {
+            font-size: 10px;
+        }
+
+        .positive {
+            color: #4CAF50;
+        }
+
+        .negative {
+            color: #f44336;
+        }
+
+        .portfolio-chart {
+            width: 60px;
+            height: 20px;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #4CAF50;
+            border-radius: 1px;
+            animation: chartPulse 3s ease-in-out infinite;
+        }
+
+        .chart-line.negative {
+            background: #f44336;
+        }
+
+        @keyframes chartPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .sell-btn {
+            background: transparent;
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+        }
+
+        .details-btn {
+            background: transparent;
+            color: #888;
+            border: 1px solid #444;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 80px;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 20px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(76, 175, 80, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 25px;
+            padding: 35px;
+            max-width: 380px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+            transform: scale(0.6) translateY(80px);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #45a049, #4CAF50);
+            background-size: 200% 100%;
+            animation: modalShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes modalShimmer {
+            0%, 100% { background-position: 200% 0; }
+            50% { background-position: -200% 0; }
+        }
+
+        .modal-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+            animation: modalIconFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes modalIconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(-8deg); }
+        }
+
+        .modal-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-subtitle {
+            font-size: 16px;
+            color: #b0b0b0;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .modal-features {
+            text-align: left;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.08);
+            border-radius: 15px;
+            border: 1px solid rgba(76, 175, 80, 0.15);
+        }
+
+        .modal-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .modal-feature:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal-feature-icon {
+            margin-right: 12px;
+            font-size: 18px;
+            width: 25px;
+            text-align: center;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .modal-button {
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .modal-button-primary {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            box-shadow: 0 12px 35px rgba(76, 175, 80, 0.3);
+        }
+
+        .modal-button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 45px rgba(76, 175, 80, 0.4);
+        }
+
+        .modal-button-secondary {
+            background: transparent;
+            color: #b0b0b0;
+            border: 2px solid rgba(176, 176, 176, 0.3);
+        }
+
+        .modal-button-secondary:hover {
+            border-color: rgba(76, 175, 80, 0.5);
+            color: #4CAF50;
+            transform: translateY(-2px);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-button:hover {
+            color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            border-radius: 3px;
+            width: 38%;
+            animation: progressPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes progressPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .logo-text {
+                font-size: 44px;
+            }
+
+            .description {
+                font-size: 24px;
+            }
+
+            .phone {
+                width: 300px;
+                height: 600px;
+            }
+
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .modal {
+                padding: 30px 25px;
+                margin: 20px;
+            }
+
+            .modal-title {
+                font-size: 24px;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
+            }
+
+            .modal-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+
+        <div class="main-content">
+            <div class="text-section">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">It биржа</div>
+                </div>
+
+                <div class="description">
+                    Мобильное приложение для изучения инвестиций,<br>
+                    покупки ценных бумаг и акций
+                </div>
+
+                <div class="subtitle">
+                    Зарабатывайте больше с удобными инструментами<br>
+                    для инвестиций:
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <div class="feature-icon">📞</div>
+                        <div class="feature-text">
+                            Только в этом приложении можно дарить ценные бумаги по номеру телефона. Выберите что хотите подарить и сколько. Введите номер телефона получателя. Если он зарегистрирован, то получит подарок в течение 1-и минуты
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <div class="feature-text">
+                            Инвестируйте в иностранные компании или покупайте отечественные ценные бумаги
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">💬</div>
+                        <div class="feature-text">
+                            Задавайте вопросы в WhatsApp-чате. Пишите, высылайте голосовые сообщения, записывайте видео. Наш консультант со всем разберется, ответит на вопросы по приложению простым языком и поможет решить вопрос регистрации, привязки банковской карты, покупки биржевых нот
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="phone-mockup">
+                <div class="phone">
+                    <div class="screen">
+                        <div class="status-bar">
+                            <span>9:41</span>
+                            <span>📶 📶 🔋</span>
+                        </div>
+                        
+                        <div class="app-header">
+                            <div class="app-store-icons">
+                                <div class="store-icon app-store">A</div>
+                                <div class="store-icon google-play">▶</div>
+                            </div>
+                        </div>
+
+                        <div class="investment-info">
+                            Биржевые ноты, которые вы можете купить и продать в Tabys. По каждой ноте вы видите краткое наименование, график изменения цены за неделю, последнюю цену и ее изменение в процентах. Для детальной информации по каждой ноте нажмите «Подробнее».
+                        </div>
+
+                        <div class="portfolio-list">
+                            <div class="portfolio-item">
+                                <div class="portfolio-left">
+                                    <div class="portfolio-name">Золото</div>
+                                </div>
+                                <div class="portfolio-chart">
+                                    <div class="chart-line"></div>
+                                </div>
+                                <div class="portfolio-right">
+                                    <div class="portfolio-price">$4.48</div>
+                                    <div class="portfolio-change positive">+0.08% (+0.57%)</div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-item">
+                                <div class="portfolio-left">
+                                    <div class="portfolio-name">Акции 500</div>
+                                    <div class="portfolio-desc">компаний США</div>
+                                </div>
+                                <div class="portfolio-chart">
+                                    <div class="chart-line"></div>
+                                </div>
+                                <div class="portfolio-right">
+                                    <div class="portfolio-price">$5.59</div>
+                                    <div class="portfolio-change negative">-2.5% (-0.69%)</div>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="action-btn buy-btn">Купить</button>
+                                <button class="action-btn sell-btn">Продать</button>
+                                <button class="action-btn details-btn">Подробнее</button>
+                            </div>
+
+                            <div class="portfolio-item">
+                                <div class="portfolio-left">
+                                    <div class="portfolio-name">Облигации</div>
+                                    <div class="portfolio-desc">компаний США</div>
+                                </div>
+                                <div class="portfolio-chart">
+                                    <div class="chart-line"></div>
+                                </div>
+                                <div class="portfolio-right">
+                                    <div class="portfolio-price">$3.49</div>
+                                    <div class="portfolio-change negative">-3.32% (-0.43%)</div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-item">
+                                <div class="portfolio-left">
+                                    <div class="portfolio-name">Нефть Brent</div>
+                                </div>
+                                <div class="portfolio-chart">
+                                    <div class="chart-line"></div>
+                                </div>
+                                <div class="portfolio-right">
+                                    <div class="portfolio-price">$9.68</div>
+                                    <div class="portfolio-change negative">-4.36% (+3.53%)</div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-item">
+                                <div class="portfolio-left">
+                                    <div class="portfolio-name">Ноты</div>
+                                    <div class="portfolio-desc">Казначейства США</div>
+                                </div>
+                                <div class="portfolio-chart">
+                                    <div class="chart-line"></div>
+                                </div>
+                                <div class="portfolio-right">
+                                    <div class="portfolio-price">$1.18</div>
+                                    <div class="portfolio-change positive">+1.18% (+1.33%)</div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-item">
+                                <div class="portfolio-left">
+                                    <div class="portfolio-name">Дивидендные</div>
+                                    <div class="portfolio-desc">акции США</div>
+                                </div>
+                                <div class="portfolio-chart">
+                                    <div class="chart-line"></div>
+                                </div>
+                                <div class="portfolio-right">
+                                    <div class="portfolio-price">$23.33</div>
+                                    <div class="portfolio-change positive">+5.08% (+0.51%)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="#" class="cta-button" onclick="openInvestmentApp()">Начать инвестировать</a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="developmentModal">
+        <div class="modal">
+            <button class="close-button" onclick="closeModal()">&times;</button>
+            
+            <div class="modal-icon">📈</div>
+            
+            <h2 class="modal-title">Биржа в разработке</h2>
+            
+            <p class="modal-subtitle">
+                Мы создаём передовую инвестиционную платформу с инновационными возможностями!
+            </p>
+
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+
+            <div class="modal-features">
+                <div class="modal-feature">
+                    <span class="modal-feature-icon">🎁</span>
+                    <span>Дарение ценных бумаг по номеру телефона</span>
+                </div>
+                <div class="modal-feature">
+                    <span class="modal-feature-icon">🌍</span>
+                    <span>Инвестиции в международные и российские компании</span>
+                </div>
+                <div class="modal-feature">
+                    <span class="modal-feature-icon">💬</span>
+                    <span>WhatsApp-поддержка с персональным консультантом</span>
+                </div>
+                <div class="modal-feature">
+                    <span class="modal-feature-icon">📊</span>
+                    <span>Продвинутая аналитика и торговые инструменты</span>
+                </div>
+            </div>
+
+            <div class="modal-buttons">
+                <button class="modal-button modal-button-primary" onclick="subscribeNotifications()">
+                    Уведомить о запуске
+                </button>
+                <button class="modal-button modal-button-secondary" onclick="closeModal()">
+                    Понятно
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('[style*="animation"]').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive portfolio items
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px) scale(1.02)';
+                this.style.transition = 'all 0.3s ease';
+                this.style.background = 'rgba(76, 175, 80, 0.1)';
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0px) scale(1)';
+                this.style.background = 'transparent';
+            });
+        });
+
+        // Feature items hover effect
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(15px) scale(1.02)';
+                this.style.boxShadow = '0 15px 40px rgba(76, 175, 80, 0.3)';
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0px) scale(1)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Modal functions
+        function openInvestmentApp() {
+            const button = event.target;
+            button.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                openModal();
+            }, 150);
+        }
+
+        function openModal() {
+            const modal = document.getElementById('developmentModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('developmentModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function subscribeNotifications() {
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.style.transform = 'scale(0.95)';
+            button.textContent = 'Подписка оформлена! ✓';
+            button.style.background = 'linear-gradient(135deg, #2ed573, #7bed9f)';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                
+                setTimeout(() => {
+                    closeModal();
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+                    }, 500);
+                }, 2000);
+            }, 150);
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('developmentModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Phone tilt effect
+        document.addEventListener('mousemove', (e) => {
+            const phone = document.querySelector('.phone');
+            const rect = phone.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const deltaX = (e.clientX - centerX) / 30;
+            const deltaY = (e.clientY - centerY) / 30;
+            
+            phone.style.transform = `perspective(1000px) rotateY(${deltaX}deg) rotateX(${-deltaY}deg)`;
+        });
+
+        // Reset phone position when mouse leaves
+        document.addEventListener('mouseleave', () => {
+            const phone = document.querySelector('.phone');
+            phone.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+        });
+
+        // Investment animation
+        function createInvestmentAnimation() {
+            const charts = document.querySelectorAll('.chart-line');
+            charts.forEach((chart, index) => {
+                setTimeout(() => {
+                    chart.style.animation = 'chartPulse 0.5s ease-in-out 3';
+                }, index * 100);
+            });
+        }
+
+        // Action buttons
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Dynamic floating particles
+        function createFloatingParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 6 + 2}px;
+                height: ${Math.random() * 6 + 2}px;
+                background: rgba(76, 175, 80, ${Math.random() * 0.4 + 0.1});
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: 100%;
+                animation: floatUp ${Math.random() * 15 + 10}s linear infinite;
+                pointer-events: none;
+            `;
+            
+            document.querySelector('.background-shapes').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 25000);
+        }
+
+        // Add floating particles periodically
+        setInterval(createFloatingParticle, 4000);
+
+        // CSS for floating particles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Portfolio price updates simulation
+        function updatePrices() {
+            const prices = document.querySelectorAll('.portfolio-price');
+            const changes = document.querySelectorAll('.portfolio-change');
+            
+            prices.forEach((price, index) => {
+                const currentPrice = parseFloat(price.textContent.replace('$', ''));
+                const change = (Math.random() - 0.5) * 0.1;
+                const newPrice = (currentPrice + change).toFixed(2);
+                
+                price.style.opacity = '0.5';
+                setTimeout(() => {
+                    price.textContent = `$${newPrice}`;
+                    price.style.opacity = '1';
+                }, 200);
+            });
+        }
+
+        // Update prices every 10 seconds
+        setInterval(updatePrices, 10000);
+    </script>
+</body>
+</html>
