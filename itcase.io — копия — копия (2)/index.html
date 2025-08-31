@@ -54,7 +54,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            padding: 60px 0;
+            padding: 60px 60px;
             width: 100vw;
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/image copy 4.png');
             background-size: cover;
@@ -199,37 +199,6 @@
         }
 
 
-        /* Плавающие кнопки */
-        .floating-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 1000;
-        }
-
-        .widget-btn {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            color: #fff;
-            font-size: 22px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .widget-btn:hover {
-            background: linear-gradient(135deg, #666, #333);
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 8px 25px rgba(100, 100, 100, 0.5);
-            border: 2px solid rgba(150, 150, 150, 0.8);
-        }
 
         /* Чат */
         .chat-panel {
@@ -607,332 +576,101 @@
         }
 
 
-        .control-btn .tooltip {
-            position: absolute;
-            left: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
 
-        .control-btn:hover .tooltip {
-            opacity: 1;
-            visibility: visible;
-            left: 65px;
-        }
-
-        .control-btn .tooltip::before {
-            content: '';
-            position: absolute;
-            left: -5px;
-            top: 50%;
-            transform: translateY(-50%);
-            border: 5px solid transparent;
-            border-right-color: rgba(0, 0, 0, 0.9);
-        }
-
-        /* Современная навигационная панель */
+        /* Новый адаптивный header */
         header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 40px;
-            background: rgba(0, 0, 0, 0.95);
+            width: 100%;
+            max-width: 100vw;
+            height: auto;
+            min-height: 60px;
+            background: rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(20px);
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(68, 68, 68, 0.3);
-            background-color: rgba(0, 0, 0, 0.1);
-            flex-wrap: nowrap;
-            min-height: 70px;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
         }
 
-        header:hover {
-            box-shadow: 0 2px 8px rgba(246, 245, 245, 0.6);
+        .header-container {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            margin: 0;
         }
 
-        /* Левая часть: логотип */
+        /* Логотип */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 15px;
-            cursor: pointer;
+            gap: 10px;
             flex-shrink: 0;
-            white-space: nowrap;
         }
 
-        /* Картинка-логотип */
         .logo-container img {
-            width: 90px;
-            height: 90px;
+            width: 35px;
+            height: 35px;
             object-fit: contain;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            filter: brightness(1);
         }
 
-        .logo-container img:hover {
-            transform: scale(1.1) rotate(5deg);
-            filter: brightness(1.3) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
-        }
-
-        /* Текст рядом с логотипом */
         .logo-container span {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 300;
             color: #fff;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
             font-family: 'Consolas', monospace;
         }
 
-        .logo-container span:hover {
-            color: #fff;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-            transform: scale(1.05);
-            letter-spacing: 2px;
-        }
-
-        /* Навигация по центру */
+        /* Навигация */
         nav {
             display: flex;
-            gap: 35px;
             align-items: center;
+            gap: 20px;
             flex: 1;
             justify-content: center;
-            flex-wrap: nowrap;
+            max-width: calc(100% - 200px);
+            overflow: hidden;
         }
 
         nav a {
-            text-decoration: none;
             color: #fff;
-            font-size: 13px;
+            text-decoration: none;
+            font-size: 12px;
             font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 8px 16px;
+            padding: 8px 12px;
             border-radius: 4px;
             transition: all 0.3s ease;
-            position: relative;
-            opacity: 0.9;
             white-space: nowrap;
-            flex-shrink: 0;
+            opacity: 0.9;
         }
 
         nav a:hover {
-            color: #fff;
             opacity: 1;
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-1px);
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #fff;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Правая часть - дополнительные элементы */
+        /* Правая часть */
         .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
             flex-shrink: 0;
-            min-width: 100px;
-        }
-
-        .nav-search {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 8px 16px;
-            color: #fff;
-            font-size: 13px;
-            outline: none;
-            transition: all 0.3s ease;
-            width: 180px;
-        }
-
-        .nav-search:focus {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.4);
-            width: 220px;
-        }
-
-        .nav-search::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .nav-menu-btn {
-            background: none;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-menu-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: scale(1.1);
+            width: 50px;
         }
 
         .div {
             width: auto;
             height: auto;
-
-
         }
 
 
-        /* Адаптивность навигации */
-        @media (max-width: 1200px) {
-            nav {
-                gap: 25px;
-            }
 
-            nav a {
-                font-size: 12px;
-                padding: 6px 12px;
-            }
-
-            .nav-search {
-                width: 150px;
-            }
-        }
-
-        /* Адаптивная навигация для всех устройств */
-
-        @media (max-width: 992px) {
-            header {
-                padding: 5px 8px;
-                flex-wrap: nowrap;
-            }
-
-            nav {
-                display: flex;
-                justify-content: center;
-                gap: 4px;
-                flex-wrap: nowrap;
-                flex: 1;
-            }
-
-            nav a {
-                font-size: 9px;
-                padding: 3px 4px;
-                white-space: nowrap;
-                letter-spacing: 0;
-            }
-
-            .logo-container {
-                gap: 5px;
-            }
-
-            .logo-container span {
-                font-size: 14px;
-            }
-
-            .logo-container img {
-                width: 52px;
-                height: 52px;
-            }
-
-            .nav-search {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 4px 6px;
-                flex-wrap: nowrap;
-                min-height: 35px;
-            }
-
-            .logo-container span {
-                font-size: 12px;
-            }
-
-            .logo-container img {
-                width: 44px;
-                height: 44px;
-            }
-
-            nav {
-                gap: 3px;
-                flex: 1;
-                justify-content: center;
-            }
-
-            nav a {
-                font-size: 8px;
-                padding: 2px 3px;
-                letter-spacing: 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 3px 4px;
-                flex-wrap: nowrap;
-            }
-
-            .logo-container {
-                gap: 2px;
-            }
-
-            .logo-container span {
-                font-size: 10px;
-            }
-
-            .logo-container img {
-                width: 36px;
-                height: 36px;
-            }
-
-            nav {
-                gap: 2px;
-                flex: 1;
-                justify-content: center;
-            }
-
-            nav a {
-                font-size: 7px;
-                padding: 1px 2px;
-                letter-spacing: 0;
-            }
-
-            .nav-right {
-                display: none;
-            }
-        }
 
 
         .video-container {
@@ -943,20 +681,6 @@
             overflow: hidden;
         }
 
-        /* Мобильная адаптивность для video-container */
-        @media (max-width: 768px) {
-            .video-container {
-                height: 50vh; /* Уменьшаем в два раза для мобильных */
-                min-height: 300px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .video-container {
-                height: 40vh;
-                min-height: 250px;
-            }
-        }
 
 
 
@@ -1040,61 +764,8 @@
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* 📱 Мобильные устройства */
-        @media (max-width: 768px) {
-            .bottom-left-text {
-                left: 15px;
-                right: 15px;
-                max-width: calc(100% - 30px);
-                top: 60%;
-                transform: translateY(-60%);
-            }
 
-            .bottom-left-text h1 {
-                font-size: 24px;
-                margin-bottom: 10px;
-            }
 
-            .bottom-left-text p {
-                font-size: 14px;
-                line-height: 1.4;
-                margin-bottom: 8px;
-            }
-        }
-
-        /* 📱 Маленькие телефоны */
-        @media (max-width: 480px) {
-            .bottom-left-text {
-                left: 10px;
-                right: 10px;
-                max-width: calc(100% - 20px);
-                top: 65%;
-                transform: translateY(-65%);
-            }
-
-            .bottom-left-text h1 {
-                font-size: 18px;
-                margin-bottom: 8px;
-            }
-
-            .bottom-left-text p {
-                font-size: 12px;
-                line-height: 1.3;
-                margin-bottom: 6px;
-            }
-        }
-
-        /* 💻 Большие экраны (мониторы, ТВ) */
-        @media (min-width: 1600px) {
-            .bottom-left-text h1 {
-                font-size: 64px;
-            }
-
-            .bottom-left-text p {
-                font-size: 24px;
-                line-height: 1.8;
-            }
-        }
 
         .bottom-left-text {
             position: absolute;
@@ -1152,37 +823,11 @@
 
             .bottom-left-text p {
                 font-size: 16px;
-                line-height: 1.5;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .bottom-left-text {
-                left: 15px;
-                top: 40%;
-                transform: translateY(-40%);
-            }
-
-            .bottom-left-text h1 {
-                font-size: 24px;
-            }
-
-            .bottom-left-text p {
-                font-size: 14px;
                 line-height: 1.4;
             }
         }
 
-        @media (min-width: 1600px) {
-            .bottom-left-text h1 {
-                font-size: 64px;
-            }
 
-            .bottom-left-text p {
-                font-size: 24px;
-                line-height: 1.8;
-            }
-        }
 
         /* 📱 Смартфоны (до 576px) */
         @media (max-width: 576px) {
@@ -1334,6 +979,669 @@
             }
         }
 
+        /* 🔥 Респонсив от 850px до 380px */
+        @media (max-width: 850px) {
+            /* Header и навигация */
+            .navbar {
+                padding: 12px 30px;
+            }
+            
+            .logo {
+                font-size: 38px;
+            }
+            
+            .nav-links a {
+                font-size: 13px;
+            }
+            
+            /* Hero секция */
+            .hero {
+                padding: 50px 0;
+            }
+            
+            .hero h1 {
+                font-size: 45px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+                max-width: 550px;
+            }
+            
+            .btn {
+                padding: 11px 22px;
+                font-size: 15px;
+            }
+            
+            /* Зиг-заг секции */
+            .zigzag {
+                padding: 70px 0;
+                gap: 35px;
+            }
+            
+            .zigzag h2 {
+                font-size: 28px;
+            }
+            
+            .zigzag p {
+                font-size: 16px;
+            }
+            
+            .zigzag img {
+                width: 48%;
+            }
+            
+            /* Текстовые блоки в зиг-заг */
+            .zigzag .text {
+                width: 48%;
+            }
+            
+            .zigzag.text-bottom .text {
+                width: 55%;
+                padding: 18px;
+            }
+            
+            .zigzag.text-left .text {
+                width: 38%;
+                padding: 18px;
+            }
+            
+            .zigzag.text-right .text {
+                width: 42%;
+                padding: 18px;
+            }
+            
+            .zigzag.text-top-left .text {
+                width: 48%;
+                padding: 18px;
+            }
+            
+            .zigzag.text-bottom-right .text {
+                width: 42%;
+                padding: 18px;
+            }
+            
+            /* Видео контейнер */
+            .bottom-left-text {
+                left: 35px;
+                max-width: 650px;
+            }
+            
+            .bottom-left-text h1 {
+                font-size: 42px;
+            }
+            
+            .bottom-left-text p {
+                font-size: 18px;
+            }
+            
+            /* Чат панель */
+            .chat-panel {
+                width: 300px;
+                height: 400px;
+                padding: 18px;
+            }
+            
+            .chat-panel h3 {
+                font-size: 18px;
+            }
+            
+            /* Header новый */
+            .header-container {
+                padding: 12px 18px;
+            }
+            
+            .logo-container span {
+                font-size: 16px;
+            }
+            
+            .logo-container img {
+                width: 32px;
+                height: 32px;
+            }
+            
+            nav a {
+                font-size: 11px;
+                padding: 7px 10px;
+            }
+            
+            /* Модальные окна */
+            .modal-content {
+                width: 85%;
+                max-width: 800px;
+            }
+            
+            .modal-header {
+                padding: 25px;
+            }
+            
+            .modal-header h2 {
+                font-size: 28px;
+            }
+            
+            .modal-body {
+                padding: 35px;
+            }
+            
+            .modal-body h3 {
+                font-size: 22px;
+            }
+            
+            .modal-body p {
+                font-size: 15px;
+            }
+            
+            .mazgi {
+                gap: 90px;
+            }
+            
+            .mazgi-png {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .mazgi-png2 {
+                width: 180px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 750px) {
+            /* Дальнейшее уменьшение */
+            .hero h1 {
+                font-size: 38px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+                max-width: 500px;
+            }
+            
+            .zigzag {
+                padding: 60px 0;
+                gap: 30px;
+            }
+            
+            .zigzag h2 {
+                font-size: 24px;
+            }
+            
+            .zigzag p {
+                font-size: 15px;
+            }
+            
+            .bottom-left-text h1 {
+                font-size: 36px;
+            }
+            
+            .bottom-left-text p {
+                font-size: 16px;
+            }
+            
+            .logo {
+                font-size: 32px;
+            }
+            
+            .chat-panel {
+                width: 280px;
+                height: 380px;
+            }
+            
+            .modal-content {
+                width: 80%;
+                max-width: 700px;
+            }
+            
+            .modal-header h2 {
+                font-size: 26px;
+            }
+            
+            .modal-body {
+                padding: 30px;
+            }
+            
+            .mazgi {
+                gap: 75px;
+            }
+            
+            .mazgi-png2 {
+                width: 160px;
+                height: 40px;
+            }
+        }
+        
+        @media (max-width: 650px) {
+            /* Средние экраны */
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+                max-width: 450px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .zigzag {
+                padding: 50px 0;
+                gap: 25px;
+            }
+            
+            .zigzag h2 {
+                font-size: 22px;
+            }
+            
+            .zigzag p {
+                font-size: 14px;
+            }
+            
+            .bottom-left-text {
+                left: 30px;
+                max-width: 550px;
+            }
+            
+            .bottom-left-text h1 {
+                font-size: 30px;
+            }
+            
+            .bottom-left-text p {
+                font-size: 15px;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .nav-links a {
+                font-size: 12px;
+            }
+            
+            .chat-panel {
+                width: 260px;
+                height: 360px;
+                padding: 16px;
+            }
+            
+            .modal-content {
+                width: 75%;
+                max-width: 600px;
+            }
+            
+            .modal-header {
+                padding: 20px;
+            }
+            
+            .modal-header h2 {
+                font-size: 24px;
+            }
+            
+            .modal-body {
+                padding: 25px;
+            }
+            
+            .modal-body h3 {
+                font-size: 20px;
+            }
+            
+            .modal-body p {
+                font-size: 14px;
+            }
+            
+            .mazgi {
+                gap: 60px;
+            }
+            
+            .mazgi-png {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .mazgi-png2 {
+                width: 140px;
+                height: 35px;
+            }
+        }
+        
+        @media (max-width: 550px) {
+            /* Маленькие экраны */
+            .hero {
+                padding: 40px 0;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 14px;
+                max-width: 400px;
+            }
+            
+            .zigzag {
+                padding: 40px 0;
+                gap: 20px;
+            }
+            
+            .zigzag h2 {
+                font-size: 20px;
+            }
+            
+            .zigzag p {
+                font-size: 13px;
+            }
+            
+            .bottom-left-text {
+                left: 25px;
+                max-width: 500px;
+            }
+            
+            .bottom-left-text h1 {
+                font-size: 26px;
+            }
+            
+            .bottom-left-text p {
+                font-size: 14px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            .navbar {
+                padding: 10px 25px;
+            }
+            
+            .chat-panel {
+                width: 240px;
+                height: 340px;
+                padding: 14px;
+            }
+            
+            .header-container {
+                padding: 10px 15px;
+            }
+            
+            .logo-container span {
+                font-size: 14px;
+            }
+            
+            .logo-container img {
+                width: 28px;
+                height: 28px;
+            }
+            
+            nav a {
+                font-size: 10px;
+                padding: 6px 8px;
+            }
+            
+            .modal-content {
+                width: 70%;
+                max-width: 500px;
+            }
+            
+            .modal-header h2 {
+                font-size: 22px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .modal-body h3 {
+                font-size: 18px;
+            }
+            
+            .modal-body p {
+                font-size: 13px;
+            }
+            
+            .mazgi {
+                gap: 45px;
+            }
+            
+            .mazgi-png {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .mazgi-png2 {
+                width: 120px;
+                height: 30px;
+            }
+        }
+        
+        @media (max-width: 450px) {
+            /* Очень маленькие экраны */
+            .hero h1 {
+                font-size: 24px;
+            }
+            
+            .hero p {
+                font-size: 13px;
+                max-width: 350px;
+            }
+            
+            .btn {
+                padding: 9px 18px;
+                font-size: 13px;
+            }
+            
+            .zigzag {
+                padding: 35px 0;
+                gap: 18px;
+            }
+            
+            .zigzag h2 {
+                font-size: 18px;
+            }
+            
+            .zigzag p {
+                font-size: 12px;
+            }
+            
+            .bottom-left-text {
+                left: 20px;
+                max-width: 450px;
+            }
+            
+            .bottom-left-text h1 {
+                font-size: 22px;
+            }
+            
+            .bottom-left-text p {
+                font-size: 13px;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .chat-panel {
+                width: 220px;
+                height: 320px;
+                padding: 12px;
+            }
+            
+            .chat-panel h3 {
+                font-size: 16px;
+            }
+            
+            .modal-content {
+                width: 65%;
+                max-width: 450px;
+            }
+            
+            .modal-header {
+                padding: 18px;
+            }
+            
+            .modal-header h2 {
+                font-size: 20px;
+            }
+            
+            .modal-body {
+                padding: 18px;
+            }
+            
+            .modal-body h3 {
+                font-size: 16px;
+            }
+            
+            .modal-body p {
+                font-size: 12px;
+            }
+            
+            .mazgi {
+                gap: 30px;
+            }
+            
+            .mazgi-png {
+                width: 24px;
+                height: 24px;
+            }
+            
+            .mazgi-png2 {
+                width: 100px;
+                height: 25px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            /* Минимальные экраны */
+            .hero {
+                padding: 30px 0;
+            }
+            
+            .hero h1 {
+                font-size: 20px;
+            }
+            
+            .hero p {
+                font-size: 12px;
+                max-width: 300px;
+            }
+            
+            .btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            
+            .zigzag {
+                padding: 30px 0;
+                gap: 15px;
+            }
+            
+            .zigzag h2 {
+                font-size: 16px;
+            }
+            
+            .zigzag p {
+                font-size: 11px;
+            }
+            
+            .bottom-left-text {
+                left: 15px;
+                max-width: 350px;
+            }
+            
+            .bottom-left-text h1 {
+                font-size: 18px;
+            }
+            
+            .bottom-left-text p {
+                font-size: 12px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .navbar {
+                padding: 8px 20px;
+            }
+            
+            .nav-links a {
+                font-size: 9px;
+            }
+            
+            .chat-panel {
+                width: 200px;
+                height: 300px;
+                padding: 10px;
+            }
+            
+            .chat-panel h3 {
+                font-size: 14px;
+            }
+            
+            .header-container {
+                padding: 8px 12px;
+            }
+            
+            .logo-container span {
+                font-size: 12px;
+            }
+            
+            .logo-container img {
+                width: 24px;
+                height: 24px;
+            }
+            
+            nav a {
+                font-size: 9px;
+                padding: 5px 6px;
+            }
+            
+            .modal-content {
+                width: 60%;
+                max-width: 350px;
+            }
+            
+            .modal-header {
+                padding: 15px;
+            }
+            
+            .modal-header h2 {
+                font-size: 18px;
+            }
+            
+            .modal-body {
+                padding: 15px;
+            }
+            
+            .modal-body h3 {
+                font-size: 14px;
+            }
+            
+            .modal-body p {
+                font-size: 11px;
+            }
+            
+            .modal-btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+            
+            .mazgi {
+                gap: 20px;
+            }
+            
+            .mazgi-png {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .mazgi-png2 {
+                width: 80px;
+                height: 20px;
+            }
+        }
+
 
         .mazgi {
             display: flex;
@@ -1344,12 +1652,10 @@
         }
 
         .mazgi-png {
-            width: 200px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: transparent;
-            border: none;
-            border-radius: 10px;
-            /* margin-right: 20px;  */
+            padding: 0;
         }
 
         .mazgi-png2 {
@@ -1789,61 +2095,8 @@
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* 📱 Мобильные устройства */
-        @media (max-width: 768px) {
-            .bottom-left-text {
-                left: 15px;
-                right: 15px;
-                max-width: calc(100% - 30px);
-                top: 60%;
-                transform: translateY(-60%);
-            }
 
-            .bottom-left-text h1 {
-                font-size: 24px;
-                margin-bottom: 10px;
-            }
 
-            .bottom-left-text p {
-                font-size: 14px;
-                line-height: 1.4;
-                margin-bottom: 8px;
-            }
-        }
-
-        /* 📱 Маленькие телефоны */
-        @media (max-width: 480px) {
-            .bottom-left-text {
-                left: 10px;
-                right: 10px;
-                max-width: calc(100% - 20px);
-                top: 65%;
-                transform: translateY(-65%);
-            }
-
-            .bottom-left-text h1 {
-                font-size: 18px;
-                margin-bottom: 8px;
-            }
-
-            .bottom-left-text p {
-                font-size: 12px;
-                line-height: 1.3;
-                margin-bottom: 6px;
-            }
-        }
-
-        /* 💻 Большие экраны (мониторы, ТВ) */
-        @media (min-width: 1600px) {
-            .bottom-left-text h1 {
-                font-size: 64px;
-            }
-
-            .bottom-left-text p {
-                font-size: 24px;
-                line-height: 1.8;
-            }
-        }
 
         .bottom-left-text {
             position: absolute;
@@ -1905,7 +2158,7 @@
 
             .bottom-left-text p {
                 font-size: 16px;
-                line-height: 1.5;
+                line-height: 1.4;
             }
         }
 
@@ -1914,20 +2167,6 @@
                 left: 15px;
                 top: 40%;
                 transform: translateY(-40%);
-            }
-
-            .bottom-left-text h1 {
-                font-size: 24px;
-            }
-
-            .bottom-left-text p {
-                font-size: 14px;
-                line-height: 1.4;
-            }
-        }
-
-        @media (min-width: 1600px) {
-            .bottom-left-text h1 {
                 font-size: 64px;
             }
 
@@ -1940,8 +2179,8 @@
 
 
         .logo {
-            width: 200px;
-            height: 200px;
+            width: 100px;
+            height: 100px;
             /* margin-top: 35px; */
         }
 
@@ -1951,6 +2190,8 @@
             width: auto;
             height: auto;
             gap: 15px;
+            width: auto;
+            height: auto;
         }
 
         .logo-text2 {
@@ -1971,39 +2212,226 @@
         .consolas {
             font-family: 'Consolas', monospace;
         }
+        /* 📱 Супер маленькие экраны (до 400px) */
+@media (max-width: 400px) {
+    /* HEADER */
+    header {
+        padding: 8px 10px;
+    }
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        width: 100%;
+    }
+    nav a {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+    .logo-container span {
+        font-size: 16px;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 20px 12px;
+        text-align: center;
+        align-items: center;
+        background-size: cover !important;
+    }
+    .hero h1 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+    .hero p {
+        font-size: 14px;
+        line-height: 1.4;
+        max-width: 95%;
+    }
+    .btn {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* VIDEO + TEXT */
+    .bottom-left-text {
+        left: 10px;
+        top: 35%;
+        transform: translateY(-35%);
+        max-width: 90%;
+    }
+    .bottom-left-text h1 {
+        font-size: 20px;
+    }
+    .bottom-left-text p {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+    .video-container video {
+        object-fit: cover;
+    }
+
+    /* ZIGZAG SECTIONS */
+    .zigzag {
+        flex-direction: column !important;
+        padding: 15px 10px;
+        gap: 12px;
+        text-align: center;
+    }
+    .zigzag img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .zigzag .text {
+        width: 100%;
+        font-size: 14px;
+    }
+    .zigzag h2 {
+        font-size: 20px;
+    }
+    .zigzag p {
+        font-size: 13px;
+    }
+
+    /* APP SECTIONS */
+    .app-section {
+        flex-direction: column !important;
+        padding: 30px 15px;
+        text-align: center;
+    }
+    .app-content {
+        max-width: 100%;
+    }
+    .app-title {
+        font-size: 24px;
+    }
+    .app-subtitle {
+        font-size: 14px;
+    }
+    .phone-mockup, .phone-frame {
+        width: 260px;
+        height: 480px;
+    }
+
+    /* MODALS */
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+        padding: 15px;
+    }
+    .modal-header h2 {
+        font-size: 18px;
+    }
+    .modal-body {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    /* CONTACTS */
+    .contacts-section {
+        padding: 40px 20px;
+    }
+    .contacts-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .contacts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .contact-card {
+        padding: 20px;
+    }
+    .contact-title {
+        font-size: 18px;
+    }
+    .contact-info {
+        font-size: 13px;
+    }
+
+    /* CHAT PANEL */
+    .chat-panel {
+        width: 95%;
+        height: 55%;
+        right: 2.5%;
+        bottom: 20%;
+    }
+
+    /* FOOTER/ЛОГО */
+    .logo-container2 {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+    .logo-text2 {
+        font-size: 22px;
+    }
+}
+@media (max-width: 850px) {
+            .hero {
+                padding: 20px 20px;
+            }
+            .header-container{
+                padding: 8px 8px;
+            }
+            .nav{
+             font-size: 12px;
+            }
+            .consolas{
+                font-size: 5px;
+            }
+            .mazgi-png3{
+                width: 50px;
+                height: 15px;
+                border-radius: 3px;
+            }
+            .logo-text2{
+                font-size: 22px;
+            }
+            .itcase.io Logo{
+                width: 50px;
+                height: 50px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
-    <header style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">
-        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: nowrap;">
+    <header>
+        <div class="header-container">
             <div class="logo-container">
                 <img src="кайф.png" alt="itcase.io Logo">
-                <span class="logo-text">itcase.io</span>
+                <span>itcase.io</span>
                 <img src="image.png" alt="" class="mazgi-png">
             </div>
 
-            <nav>
-                <a href="#home" class="home-text">Главная</a>
-                <a href="#it-sabab" class="it-sabab-text">it sabab</a>
-                <a href="#it-style" class="it-style-text">it style</a>
-                <a href="#it-birja" class="it-birja-text">it биржа</a>
-                <a href="#it-tv" class="it-tv-text">it tv</a>
-                <a href="#contact" class="contact-text">Контакты</a>
+            <nav class="nav">
+                <a href="#home">Главная</a>
+                <a href="#it-sabab">it sabab</a>
+                <a href="#it-style">it style</a>
+                <a href="#it-birja">it биржа</a>
+                <a href="#it-tv">it tv</a>
+                <a href="#contact">Контакты</a>
             </nav>
 
-            <div class="nav-right">
-            </div>
+            
         </div>
     </header>
-
 
     <!-- Hero -->
     <div class="hero" id="home">
         <div class="mazgi">
             <h1 class="consolas">Добро пожаловать в </h1>
             <div class="logo-container2">
-                <img src="кайф.png" alt="itcase.io Logo" class="logo">
+                <img src="кайф.png" alt="itcase.ioLogo2" class="logo">
                 <span class="logo-text2">itcase.io</span>
                 <img src="image.png" alt="" class="mazgi-png3">
             </div>
@@ -2185,7 +2613,7 @@
         <div class="text">
             <ul class="features-list">
                 <li class="feature-item">
-                    <div class="feature-icon" style="display: flex; justify-content: center;"><img src="logos/orange.logo.png" alt="" style="width: 120px; height: 120px; object-fit: contain;"></div>
+                    <div class="feature-icon" style="display: flex; justify-content: center;"><img src="logos/orange.logo.png" alt="" style="width: 120px; height: 120px; object-fit: contain;box-shadow: none;"></div>
                     <div class="feature-text">
                         <h2>Электромобили будущего</h2>
                         <p>Электромобили будущего — это не просто транспорт, а шаг к более чистой и устойчивой планете.
@@ -2205,7 +2633,7 @@
         <div class="text">
             <ul class="features-list">
                 <li class="feature-item">
-                    <div class="feature-icon" style="display: flex; justify-content: center;"><img src="logos/yelllow.logo.png" alt="" style="width: 160px; height: 160px; object-fit: contain;"></div>
+                    <div class="feature-icon" style="display: flex; justify-content: center;"><img src="logos/yelllow.logo.png" alt="" style="width: 160px; height: 160px; object-fit: contain;box-shadow: none;"></div>
                     <div class="feature-text">
                         <h2>Инновационные решения</h2>
                         <p>Наши технологии объединяют транспорт и цифровые сервисы, создавая удобную и безопасную среду
@@ -2225,7 +2653,7 @@
         <div class="text">
             <ul class="features-list">
                 <li class="feature-item">
-                    <div class="feature-icon" style="display: flex; justify-content: center;"><img src="logos/green.logo.png" alt="" style="width: 260px; height: 260px; "></div>
+                    <div class="feature-icon" style="display: flex; justify-content: center;"><img src="logos/green.logo.png" alt="" style="width: 160px; height: 160px;border: none;box-shadow: none;"></div>
                     <div class="feature-text">
                         <h2>Энергия для движения вперёд</h2>
 
@@ -2246,7 +2674,7 @@
         <div class="text">
             <ul class="features-list">
                 <li class="feature-item">
-                    <div class="feature-icon"><img src="logos/green.logo.png" alt=""></div>
+                    <div class="feature-icon"><img src="logos/green.logo.png"style="width: 160px; height: 160px;border: none;box-shadow: none;" alt=""></div>
                     <div class="feature-text">
 
 
@@ -2346,11 +2774,6 @@
 
 
 
-    <!-- Плавающие кнопки -->
-    <div class="floating-widget">
-        <button id="scrollTopBtn" class="widget-btn">⬆</button>
-
-    </div>
 
 
     <!-- Модальные окна -->
@@ -2824,10 +3247,6 @@
                             Jeans, Dr. Martens, Finn Flare, Fred Perry, GAP, Jack & Jones, Intimissimi, Lacoste, Levi's,
                             Mango, Marks & Spencer, Oodji, SELA, O'stin, Timberland, Tommy Hilfiger, Topshop, United
                             Colors
-                            of Benetton, Zarina, Boss, Hugo, Sandro, Maje, Ray Ban, Aeronautica Militare, Armani
-                            Exchange,
-                            Baldinini, Bikkembergs, Calvin Klein, Coach, Coccinelle, DKNY, Adidas, Puma, Nike, Befree,
-                            Ecco,
                             Reebok, Love republic, T.Taccardi и других.
                         </div>
                     </div>
@@ -3041,106 +3460,39 @@
                         <div class="phone">
                             <div class="screen">
                                 <div class="status-bar">
-                                    <span>9:41</span>
+                                    <span>7:57</span>
                                     <span>📶 📶 🔋</span>
                                 </div>
 
+                                <div class="back-button">← Watch Now</div>
+
                                 <div class="app-header">
-                                    <div class="app-store-icons">
-                                        <div class="store-icon app-store">A</div>
-                                        <div class="store-icon google-play">▶</div>
-                                    </div>
+                                    <div class="app-title">What to Watch</div>
                                 </div>
 
-                                <div class="investment-info">
-
+                                <div class="movies-grid">
+                                    <div class="movie-card movie-1" data-title="BREAKING"></div>
+                                    <div class="movie-card movie-2" data-title="SEE"></div>
+                                    <div class="movie-card movie-3" data-title="FAST & FURIOUS"></div>
+                                    <div class="movie-card movie-4" data-title="FOR ALL MANKIND"></div>
+                                    <div class="movie-card movie-5" data-title="AVENGERS"></div>
+                                    <div class="movie-card movie-6" data-title="MORNING SHOW"></div>
+                                    <div class="movie-card movie-7" data-title="LION KING"></div>
+                                    <div class="movie-card movie-8" data-title="ROCKETMAN"></div>
                                 </div>
 
-                                <div class="portfolio-list">
-                                    <div class="portfolio-item">
-                                        <div class="portfolio-left">
-                                            <div class="portfolio-name">Золото</div>
-                                        </div>
-                                        <div class="portfolio-chart">
-                                            <div class="chart-line"></div>
-                                        </div>
-                                        <div class="portfolio-right">
-                                            <div class="portfolio-price">$4.48</div>
-                                            <div class="portfolio-change positive">+0.08% (+0.57%)</div>
-                                        </div>
+                                <div class="bottom-nav">
+                                    <div class="nav-item active">
+                                        <span class="nav-icon">💼</span>
+                                        <span>Watch Now</span>
                                     </div>
-
-                                    <div class="portfolio-item">
-                                        <div class="portfolio-left">
-                                            <div class="portfolio-name">Акции 500</div>
-                                            <div class="portfolio-desc">компаний США</div>
-                                        </div>
-                                        <div class="portfolio-chart">
-                                            <div class="chart-line"></div>
-                                        </div>
-                                        <div class="portfolio-right">
-                                            <div class="portfolio-price">$5.59</div>
-                                            <div class="portfolio-change negative">-2.5% (-0.69%)</div>
-                                        </div>
+                                    <div class="nav-item">
+                                        <span class="nav-icon">📚</span>
+                                        <span>Library</span>
                                     </div>
-
-                                    <div class="action-buttons">
-
-                                    </div>
-
-                                    <div class="portfolio-item">
-                                        <div class="portfolio-left">
-                                            <div class="portfolio-name">Облигации</div>
-                                            <div class="portfolio-desc">компаний США</div>
-                                        </div>
-                                        <div class="portfolio-chart">
-                                            <div class="chart-line"></div>
-                                        </div>
-                                        <div class="portfolio-right">
-                                            <div class="portfolio-price">$3.49</div>
-                                            <div class="portfolio-change negative">-3.32% (-0.43%)</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="portfolio-item">
-                                        <div class="portfolio-left">
-                                            <div class="portfolio-name">Нефть Brent</div>
-                                        </div>
-                                        <div class="portfolio-chart">
-                                            <div class="chart-line"></div>
-                                        </div>
-                                        <div class="portfolio-right">
-                                            <div class="portfolio-price">$9.68</div>
-                                            <div class="portfolio-change negative">-4.36% (+3.53%)</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="portfolio-item">
-                                        <div class="portfolio-left">
-                                            <div class="portfolio-name">Ноты</div>
-                                            <div class="portfolio-desc">Казначейства США</div>
-                                        </div>
-                                        <div class="portfolio-chart">
-                                            <div class="chart-line"></div>
-                                        </div>
-                                        <div class="portfolio-right">
-                                            <div class="portfolio-price">$1.18</div>
-                                            <div class="portfolio-change positive">+1.18% (+1.33%)</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="portfolio-item">
-                                        <div class="portfolio-left">
-                                            <div class="portfolio-name">Дивидендные</div>
-                                            <div class="portfolio-desc">акции США</div>
-                                        </div>
-                                        <div class="portfolio-chart">
-                                            <div class="chart-line"></div>
-                                        </div>
-                                        <div class="portfolio-right">
-                                            <div class="portfolio-price">$23.33</div>
-                                            <div class="portfolio-change positive">+5.08% (+0.51%)</div>
-                                        </div>
+                                    <div class="nav-item">
+                                        <span class="nav-icon">🔍</span>
+                                        <span>Search</span>
                                     </div>
                                 </div>
                             </div>
@@ -3365,17 +3717,6 @@
                 </div>
             </section>
 
-    <!-- Плавающие кнопки -->
-    <div class="floating-widget">
-        <button class="widget-btn control-btn" id="backToTop" onclick="scrollToTop()">
-            ↑
-            <div class="tooltip">Наверх</div>
-        </button>
-        <button class="widget-btn control-btn" id="chatBtn" onclick="toggleChat()">
-            💬
-            <div class="tooltip">Чат</div>
-        </button>
-    </div>
 
     <!-- Чат панель -->
     <div class="chat-panel" id="chatPanel">

@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Sabab - Service Marketplace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .background-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: linear-gradient(45deg, #FFA726, #FF9800);
+            opacity: 0.08;
+            border-radius: 20px;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 220px;
+            height: 220px;
+            top: 8%;
+            right: 3%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 160px;
+            height: 160px;
+            bottom: 15%;
+            right: 8%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            top: 55%;
+            right: 12%;
+            animation-delay: 8s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-35px) rotate(12deg); }
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 140px;
+            align-items: center;
+            min-height: 95vh;
+        }
+
+        .text-section {
+            z-index: 2;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FFA726, #FF9800);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(255, 167, 38, 0.3);
+        }
+
+        .logo-icon::before {
+            content: '⚡';
+            font-size: 38px;
+        }
+
+        .logo-text {
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        .description {
+            font-size: 30px;
+            line-height: 1.6;
+            color: #b0b0b0;
+            margin-bottom: 50px;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #cccccc;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 167, 38, 0.05);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 167, 38, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FFA726, #FF9800);
+        }
+
+        .step-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 167, 38, 0.1);
+            border-color: rgba(255, 167, 38, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 167, 38, 0.2);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FFA726, #FF9800);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            animation: stepFloat 4s ease-in-out infinite;
+        }
+
+        .step-item:nth-child(2) .step-icon {
+            animation-delay: 1.5s;
+        }
+
+        .step-item:nth-child(3) .step-icon {
+            animation-delay: 3s;
+        }
+
+        @keyframes stepFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(3deg); }
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .step-desc {
+            font-size: 15px;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        .phone-mockup {
+            position: relative;
+            animation: slideInRight 1s ease-out 0.8s both;
+        }
+
+        .phone {
+            width: 360px;
+            height: 720px;
+            background: #000;
+            border-radius: 55px;
+            padding: 35px;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 60px 120px rgba(0, 0, 0, 0.8);
+            border: 6px solid #333;
+        }
+
+        .phone::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 40px;
+            background: #000;
+            border-radius: 30px;
+            z-index: 3;
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-radius: 45px;
+            padding: 70px 30px 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .app-store-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .store-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .app-store {
+            background: #007AFF;
+        }
+
+        .google-play {
+            background: linear-gradient(45deg, #34A853, #4285F4);
+        }
+
+        .lang-toggle {
+            color: #FFA726;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-illustration {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #FFA726, #FF9800);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: heroFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-8px) scale(1.02); }
+        }
+
+        .hero-illustration::before {
+            content: '🏃‍♂️';
+            font-size: 80px;
+        }
+
+        .hero-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, #FFA726, #FF9800);
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 167, 38, 0.3);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 167, 38, 0.4);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: #999;
+            border: 2px solid #444;
+        }
+
+        .secondary-btn:hover {
+            border-color: #FFA726;
+            color: #FFA726;
+            transform: translateY(-2px);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-70px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(70px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 80px;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFA726, #FF9800);
+            color: white;
+            padding: 22px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(255, 167, 38, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(255, 167, 38, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 25px;
+            padding: 0;
+            max-width: 480px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 167, 38, 0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+
+        .modal-content::-webkit-scrollbar {
+            display: none; /* WebKit */
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            position: relative;
+            padding: 20px 25px 0;
+            text-align: right;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: #FFA726;
+            background: rgba(255, 167, 38, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 20px 30px 35px;
+            text-align: center;
+        }
+
+        .modal-icon {
+            margin-bottom: 25px;
+        }
+
+        .floating-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FFA726, #FF9800);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 36px;
+            animation: modalIconFloat 3s ease-in-out infinite;
+            box-shadow: 0 15px 30px rgba(255, 167, 38, 0.3);
+            position: relative;
+        }
+
+        .floating-icon::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FFA726, #FF9800, #FFA726);
+            border-radius: 50%;
+            z-index: -1;
+            animation: shimmer 2s linear infinite;
+        }
+
+        @keyframes modalIconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .modal-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .modal-subtitle {
+            font-size: 16px;
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .progress-label {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FFA726, #FF9800);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 2s ease-out;
+            animation: progressGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes progressGlow {
+            0% { box-shadow: 0 0 5px rgba(255, 167, 38, 0.5); }
+            100% { box-shadow: 0 0 15px rgba(255, 167, 38, 0.8); }
+        }
+
+        .progress-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #FFA726;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(255, 167, 38, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 167, 38, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 167, 38, 0.1);
+            border-color: rgba(255, 167, 38, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 20px;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .notify-btn, .understand-btn {
+            padding: 14px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 160px;
+        }
+
+        .notify-btn {
+            background: linear-gradient(135deg, #FFA726, #FF9800);
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 167, 38, 0.3);
+        }
+
+        .notify-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(255, 167, 38, 0.4);
+        }
+
+        .notify-btn.subscribed {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .understand-btn {
+            background: transparent;
+            color: #999;
+            border: 2px solid #444;
+        }
+
+        .understand-btn:hover {
+            border-color: #FFA726;
+            color: #FFA726;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+
+            .logo-text {
+                font-size: 46px;
+            }
+
+            .description {
+                font-size: 26px;
+            }
+
+            .phone {
+                width: 320px;
+                height: 640px;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 20px;
+            }
+
+            .modal-title {
+                font-size: 22px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .notify-btn, .understand-btn {
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+
+        <div class="main-content">
+            <div class="text-section">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">It sabab</div>
+                </div>
+
+                <div class="description">
+                    Мобильное приложение, которое позволяет находить<br>
+                    исполнителей для решения бытовых и бизнес-задач
+                </div>
+
+                <div class="subtitle">
+                    В данном мобильном приложении разработана система безопасных сделок. Сервис «Безопасная сделка» позволяет выполнить процесс оплаты услуг удобным и безопасным способом:
+                </div>
+
+                <div class="process-steps">
+                    <div class="step-item">
+                        <div class="step-icon">💳</div>
+                        <div class="step-title">Заказчик оплачивает</div>
+                        <div class="step-desc">услугу картой</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon">💰</div>
+                        <div class="step-title">Деньги резервируются</div>
+                        <div class="step-desc">на виртуальном счете до момента фактического завершения выполнения задания</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon">✅</div>
+                        <div class="step-title">После того как Заказчик</div>
+                        <div class="step-desc">подтвердил выполнение задания, деньги переводятся на карту Исполнителя</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone-mockup">
+                <div class="phone">
+                    <div class="screen">
+                        <div class="status-bar">
+                            <span>12:48</span>
+                            <span>📶 📶 🔋</span>
+                        </div>
+                        
+                        <div class="app-header">
+                            <div class="app-store-icons">
+                                <div class="store-icon app-store">A</div>
+                                <div class="store-icon google-play">▶</div>
+                            </div>
+                            <div class="lang-toggle">Рус / Eng</div>
+                        </div>
+
+                        <div class="hero-section">
+                            <div class="hero-illustration"></div>
+                            
+                            <h2 class="hero-title">Экономьте время</h2>
+                            
+                            <p class="hero-subtitle">
+                                Сэкономьте время, деньги и силы с 1000<br>
+                                надёжных исполнителей для любых задач
+                            </p>
+
+                            <div class="action-buttons">
+                                <button class="action-btn primary-btn">Далее</button>
+                                <button class="action-btn secondary-btn">Пропустить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="#" class="cta-button" onclick="openServiceApp()">Найти исполнителя</a>
+        </div>
+    </div>
+
+    <!-- Development Modal -->
+    <div id="developmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon">
+                    <div class="floating-icon">⚡</div>
+                </div>
+                <h2 class="modal-title">IT Sabab в разработке</h2>
+                <p class="modal-subtitle">Мы активно работаем над созданием лучшего сервиса для поиска исполнителей</p>
+                
+                <div class="progress-section">
+                    <div class="progress-label">Готовность проекта</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="65"></div>
+                    </div>
+                    <div class="progress-text">65%</div>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <span class="feature-text">Безопасные сделки</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span class="feature-text">Быстрый поиск</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💰</span>
+                        <span class="feature-text">Честные цены</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📱</span>
+                        <span class="feature-text">Мобильное приложение</span>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="notify-btn" onclick="subscribeToUpdates()">Уведомить о запуске</button>
+                    <button class="understand-btn" onclick="closeModal()">Понятно</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('[style*="animation"]').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive step items
+        document.querySelectorAll('.step-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
+                this.style.transition = 'all 0.3s ease';
+                this.style.background = 'rgba(255, 167, 38, 0.15)';
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0px) scale(1)';
+                this.style.background = 'rgba(255, 167, 38, 0.05)';
+            });
+        });
+
+        // Modal functions
+        function openServiceApp() {
+            const button = event.target;
+            button.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                openModal();
+            }, 150);
+        }
+
+        function openModal() {
+            const modal = document.getElementById('developmentModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Animate progress bar
+            setTimeout(() => {
+                const progressFill = document.querySelector('.progress-fill');
+                const progress = progressFill.getAttribute('data-progress');
+                progressFill.style.width = progress + '%';
+            }, 500);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('developmentModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Reset progress bar
+            setTimeout(() => {
+                const progressFill = document.querySelector('.progress-fill');
+                progressFill.style.width = '0%';
+            }, 300);
+        }
+
+        function subscribeToUpdates() {
+            const button = event.target;
+            button.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                button.textContent = 'Подписка оформлена! ✓';
+                button.classList.add('subscribed');
+                
+                setTimeout(() => {
+                    closeModal();
+                }, 1500);
+            }, 150);
+        }
+
+        // Close modal on outside click
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('developmentModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Phone tilt effect
+        document.addEventListener('mousemove', (e) => {
+            const phone = document.querySelector('.phone');
+            const rect = phone.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const deltaX = (e.clientX - centerX) / 35;
+            const deltaY = (e.clientY - centerY) / 35;
+            
+            phone.style.transform = `perspective(1000px) rotateY(${deltaX}deg) rotateX(${-deltaY}deg)`;
+        });
+
+        // Reset phone position when mouse leaves
+        document.addEventListener('mouseleave', () => {
+            const phone = document.querySelector('.phone');
+            phone.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+        });
+
+        // Service animation
+        function createServiceAnimation() {
+            const steps = document.querySelectorAll('.step-icon');
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.style.animation = 'stepFloat 0.6s ease-in-out 2';
+                }, index * 200);
+            });
+        }
+
+        // Action buttons
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Dynamic floating particles
+        function createFloatingParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 8 + 4}px;
+                height: ${Math.random() * 8 + 4}px;
+                background: rgba(255, 167, 38, ${Math.random() * 0.5 + 0.1});
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: 100%;
+                animation: floatUp ${Math.random() * 18 + 12}s linear infinite;
+                pointer-events: none;
+            `;
+            
+            document.querySelector('.background-shapes').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 30000);
+        }
+
+        // Add floating particles periodically
+        setInterval(createFloatingParticle, 5000);
+
+        // CSS for floating particles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Hero illustration interaction
+        document.querySelector('.hero-illustration').addEventListener('click', function() {
+            this.style.animation = 'heroFloat 0.8s ease-in-out 2';
+            
+            setTimeout(() => {
+                this.style.animation = 'heroFloat 5s ease-in-out infinite';
+            }, 1600);
+        });
+
+        // Language toggle
+        document.querySelector('.lang-toggle').addEventListener('click', function() {
+            const current = this.textContent;
+            this.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                if (current.includes('Рус')) {
+                    this.textContent = 'Eng / Рус';
+                } else {
+                    this.textContent = 'Рус / Eng';
+                }
+                this.style.opacity = '1';
+            }, 200);
+        });
+    </script>
+</body>
+</html>
